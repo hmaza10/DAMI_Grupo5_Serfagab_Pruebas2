@@ -16,4 +16,7 @@
     <dimen name="dimen_image">16dp</dimen>
     <dimen name="menu_icon_dimen">48dp</dimen>
     <dimen name="magin_bottom">15dp</dimen>
+    <dimen name="dimen_view">18dp</dimen>
+    <dimen name="size_navbar_text">9sp</dimen>
+    <dimen name="size_name_text">10sp</dimen>
 </resources>

@@ -16,8 +16,10 @@
     <string name="nav_bar_material">Material</string>
     <string name="nav_bar_tipomaterial">Tipo Material</string>
     <string name="nav_bar_proveedor">Proveedores</string>
-    <string name="nav_bar_ordencompra">Orden Compra</string>
+    <string name="nav_bar_ordencompra">Ordenes de Compra</string>
     <string name="abrir_menu">Abrir menú</string>
     <string name="nav_bar_cerrar_sesion">Cerrar Sesion</string>
+    <string name="cerrando_sesion">Cerrando sesion</string>
+    <string name="weight_navbar">1</string>
 
 </resources>

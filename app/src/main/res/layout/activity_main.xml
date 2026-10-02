@@ -69,7 +69,7 @@
                     android:layout_marginStart="4dp"
                     android:text="@string/name_empresa"
                     android:textColor="@color/white"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/size_name_text"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -80,13 +80,46 @@
             <include layout="@layout/item_sidebar_proveedores"/>
             <include layout="@layout/item_sidebar_ordencompra"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/itemCerrarSesion"
+                android:contentDescription="@string/cerrando_sesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_view"
+                    android:layout_height="@dimen/dimen_view"
+                    android:src="@drawable/ic_cerrarsesion"
+                    app:tint="@color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_bar_cerrar_sesion"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_navbar_text"
+                    android:layout_marginTop="2dp"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <FrameLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
     </LinearLayout>
 

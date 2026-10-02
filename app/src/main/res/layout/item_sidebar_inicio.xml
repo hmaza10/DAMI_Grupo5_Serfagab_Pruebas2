@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/nav_bar_inicio"
         android:textColor="@color/white"
-        android:textSize="9sp"
+        android:textSize="@dimen/size_navbar_text"
         android:layout_marginTop="2dp"/>
 
 </LinearLayout>
