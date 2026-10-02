@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Serfagab_Pruebas2</string>
+    <!--STRINGS DE LOGIN-->
+    <string name="name_empresa">SERFAGAB</string>
+    <string name="descripcion_empresa">Gestion de Compras</string>
+    <string name="usuario_login">Usuario</string>
+    <string name="contraseña_login">Contraseña</string>
+    <string name="button_ingresar">Ingresar →</string>
+    <string name="login_version">SERFABAG S.A.C.-Version 1.0</string>
+    <string name="hint_nombre_usuario">Coloque el nombre de Usuario</string>
+    <string name="hint_password">Coloque la contraseña </string>
+
+    <!--STRING DE MAIN-->
 </resources>

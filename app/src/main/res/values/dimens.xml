@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--DIMENS DE LOGIN-->
+    <dimen name="padding_content">24dp</dimen>
+    <dimen name="size_titulo">25sp</dimen>
+    <dimen name="radius_content_login">25dp</dimen>
+    <dimen name="dimen_ic_logo">64dp</dimen>
+    <dimen name="top_margin_description">4dp</dimen>
+    <dimen name="top_margin_user_password">32dp</dimen>
+    <dimen name="top_margin_version">30dp</dimen>
+    <dimen name="button_dimen">56dp</dimen>
+    <dimen name="button_margintop">40dp</dimen>
+    <dimen name="size_version">11sp</dimen>
+
+    <!--DIMENS DE MAIN-->
+
+</resources>
