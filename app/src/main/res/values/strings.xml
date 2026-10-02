@@ -11,4 +11,13 @@
     <string name="hint_password">Coloque la contraseña </string>
 
     <!--STRING DE MAIN-->
+    <string name="bienvenida_predeterminada">SERFAGAB - Bienvenido, ""</string>
+    <string name="nav_bar_inicio">Inicio</string>
+    <string name="nav_bar_material">Material</string>
+    <string name="nav_bar_tipomaterial">Tipo Material</string>
+    <string name="nav_bar_proveedor">Proveedores</string>
+    <string name="nav_bar_ordencompra">Orden Compra</string>
+    <string name="abrir_menu">Abrir menú</string>
+    <string name="nav_bar_cerrar_sesion">Cerrar Sesion</string>
+
 </resources>

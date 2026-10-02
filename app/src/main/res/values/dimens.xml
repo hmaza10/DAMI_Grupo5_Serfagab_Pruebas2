@@ -13,5 +13,7 @@
     <dimen name="size_version">11sp</dimen>
 
     <!--DIMENS DE MAIN-->
-
+    <dimen name="dimen_image">16dp</dimen>
+    <dimen name="menu_icon_dimen">48dp</dimen>
+    <dimen name="magin_bottom">15dp</dimen>
 </resources>
