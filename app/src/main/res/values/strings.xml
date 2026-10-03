@@ -38,4 +38,17 @@
     <string name="acceso_rapido_ordenes_description">Registrar una compra</string>
     <string name="acceso_rapido_material">Nuevo Material</string>
     <string name="acceso_rapido_material_description">Registrar un material</string>
+
+    <!--MATERIALFRAGMENT-->
+    <string name="titulo_materiales">MATERIALES</string>
+    <string name="buscador_hint">Escriba nombre del material</string>
+
+    <!-- ITEM:MATERIAL-->
+    <string name="numero_id">#</string>
+    <string name="producto_predeterminado">Prederterminado</string>
+    <string name="producto_estado_predeterminado">Estado</string>
+    <string name="unidad_stocK_precio">Predeterminado · Stock -- · S/ 00.00</string>
+    <string name="tipo_material_predeterminado">Plancha</string>
+
+
 </resources>

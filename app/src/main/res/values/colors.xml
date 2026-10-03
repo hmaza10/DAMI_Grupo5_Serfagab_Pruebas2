@@ -15,5 +15,6 @@
     <color name="color_header_2">#0F1729</color>
     <color name="gris_claro">#CCCCCC</color>
     <color name="card_pendientes">#FFF8EC</color>
-
+    <color name="color_verde">#0FF71C</color>
+    <color name="color_rojo">#F20F0F</color>
 </resources>
