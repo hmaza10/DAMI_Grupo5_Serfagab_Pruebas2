@@ -44,10 +44,15 @@
     <string name="buscador_hint">Escriba nombre del material</string>
 
     <!-- ITEM:MATERIAL-->
-    <string name="numero_id">#</string>
+    <string name="numero_id">Material #0</string>
     <string name="producto_predeterminado">Prederterminado</string>
     <string name="producto_estado_predeterminado">Estado</string>
-    <string name="unidad_stocK_precio">Predeterminado · Stock -- · S/ 00.00</string>
+    <string name="label_unidad">Unidad</string>
+    <string name="label_stock">Stock</string>
+    <string name="label_precio_ref">Precio</string>
+    <string name="resultado_unidad_inicial">--</string>
+    <string name="resultado_stock_inicial">00</string>
+    <string name="resultado_precio_inicial">S/ 0</string>
     <string name="tipo_material_predeterminado">Plancha</string>
 
 

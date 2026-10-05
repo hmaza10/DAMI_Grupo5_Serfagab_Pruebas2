@@ -32,5 +32,6 @@
     <dimen name="text_size_item">12sp</dimen>
     <dimen name="text_size_item_estado">8sp</dimen>
     <dimen name="layout_filtro">34dp</dimen>
+    <dimen name="dimen_image_view">20dp</dimen>
 
 </resources>

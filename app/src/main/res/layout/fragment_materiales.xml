@@ -94,7 +94,8 @@
             android:layout_weight="1"
             android:clipToPadding="false"
             android:paddingHorizontal="@dimen/padding_fragment_inicio"
-            android:paddingBottom="70dp"/>
+            android:paddingBottom="70dp"
+            tools:listitem = "@layout/item_material"/>
 
     </LinearLayout>
 
