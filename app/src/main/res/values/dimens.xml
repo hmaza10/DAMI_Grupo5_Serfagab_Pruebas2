@@ -34,4 +34,11 @@
     <dimen name="layout_filtro">34dp</dimen>
     <dimen name="dimen_image_view">20dp</dimen>
 
+    <!--DIMENS DE DIALOG-->
+    <dimen name="dialog_padding">20dp</dimen>
+    <dimen name="gap_small">4dp</dimen>
+    <dimen name="gap_medium">14dp</dimen>
+    <dimen name="text_body">12sp</dimen>
+
+
 </resources>

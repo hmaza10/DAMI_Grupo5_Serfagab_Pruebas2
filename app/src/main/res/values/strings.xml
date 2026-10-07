@@ -42,6 +42,16 @@
     <!--MATERIALFRAGMENT-->
     <string name="titulo_materiales">MATERIALES</string>
     <string name="buscador_hint">Escriba nombre del material</string>
+    <string name="hint_nombre_material">Nombre</string>
+    <string name="hint_unidad_medida">Unidad de medida</string>
+    <string name="hint_stock_actual">Stock actual</string>
+    <string name="hint_precio_referencial">Precio referencial</string>
+    <string name="hint_descripcion">Descripción</string>
+    <string name="label_tipo_material">Tipo de material</string>
+    <string name="label_nombre">Nombre</string>
+    <string name="label_descripcion">Descripcion</string>
+    <string name="resultado_detalle_predeterminado">Predeterminado</string>
+
 
     <!-- ITEM:MATERIAL-->
     <string name="numero_id">Material #0</string>
@@ -54,6 +64,7 @@
     <string name="resultado_stock_inicial">00</string>
     <string name="resultado_precio_inicial">S/ 0</string>
     <string name="tipo_material_predeterminado">Plancha</string>
+
 
 
 </resources>
