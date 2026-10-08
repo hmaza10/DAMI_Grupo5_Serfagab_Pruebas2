@@ -18,6 +18,7 @@
         tools:text="@string/numero_id_proveedor" />
 
     <TextView
+        android:id="@+id/textViewNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_description_inicio"
@@ -46,6 +47,7 @@
                 android:textSize="@dimen/size_name_text" />
 
             <TextView
+                android:id="@+id/textViewRuc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/negro_navbar"
@@ -99,6 +101,7 @@
         tools:text="@string/email_predeterminado"/>
 
     <TextView
+        android:id="@+id/textViewEstado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_card_white"

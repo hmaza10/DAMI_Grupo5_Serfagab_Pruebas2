@@ -72,7 +72,7 @@ class MaterialStore(context: Context) {
                         unidadMedida = cursor.getString(indiceUnidad)?: "",
                         stockActual = cursor.getDouble(indiceStock),
                         precioReferencial = cursor.getDouble(indicePrecio),
-                        descripcion = cursor.getString(indiceDescripcion),
+                        descripcion = cursor.getString(indiceDescripcion) ?: "",
                         version = cursor.getInt(indiceVersion),
                         activo = cursor.getInt(indiceActivo) == 1
                     )

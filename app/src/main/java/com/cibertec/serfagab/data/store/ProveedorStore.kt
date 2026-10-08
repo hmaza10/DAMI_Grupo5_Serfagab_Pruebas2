@@ -47,7 +47,7 @@ class ProveedorStore(context: Context) {
                         ruc = cursor.getString(indiceRuc),
                         celular = cursor.getString(indiceCelular),
                         email = cursor.getString(indiceEmail),
-                        descripcion = cursor.getString(indiceDescripcion),
+                        descripcion = cursor.getString(indiceDescripcion) ?: "",
                         activo = cursor.getInt(indiceActivo) == 1
                     )
                 )

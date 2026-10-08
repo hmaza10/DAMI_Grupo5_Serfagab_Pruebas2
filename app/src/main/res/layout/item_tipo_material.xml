@@ -45,7 +45,7 @@
         tools:text="@string/descripcion_tipomaterial_predeterminado" />
 
     <TextView
-        android:id="@+id/textViewEstadp"
+        android:id="@+id/textViewEstado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_card_white"

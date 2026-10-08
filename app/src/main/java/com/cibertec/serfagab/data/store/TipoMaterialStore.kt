@@ -38,7 +38,7 @@ class TipoMaterialStore(context: Context) {
                     TipoMaterial(
                         idTipoMaterial = cursor.getInt(indiceId),
                         nombre = cursor.getString(indiceNombre),
-                        descripcion = cursor.getString(indiceDescripcion),
+                        descripcion = cursor.getString(indiceDescripcion) ?: "",
                         activo = cursor.getInt(indiceActivo) == 1
                     )
                 )
