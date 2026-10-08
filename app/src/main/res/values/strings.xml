@@ -63,6 +63,7 @@
     <string name="resultado_stock_inicial">00</string>
     <string name="resultado_precio_inicial">S/ 0</string>
     <string name="tipo_material_predeterminado">Plancha</string>
+    <string name="descripcion_material_predeterminado">Predeterminado</string>
 
     <!--PROVEEDORFRAGMENT-->
     <string name="titulo_proveedores">PROVEEDORES</string>
@@ -74,7 +75,11 @@
 
     <!--ITEM:PROVEEDOR-->
     <string name="numero_id_proveedor">Proveedor #0</string>
-    <string name="proveedor_predeterminado">Predeterminado</string>
-
+    <string name="razon_predeterminado">Predeterminado</string>
+    <string name="ruc_predeterminado">-----------</string>
+    <string name="celular_predeterminado">---------</string>
+    <string name="email_predeterminado">Prederterminado</string>
+    <string name="estado_predeterminado_proveedor">Estado</string>
+    <string name="descripcion_proveedor_predeterminado">Predeterminado</string>
 
 </resources>
