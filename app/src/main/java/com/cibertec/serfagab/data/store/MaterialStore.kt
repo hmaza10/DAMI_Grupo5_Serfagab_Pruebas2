@@ -126,4 +126,16 @@ class MaterialStore(context: Context) {
         )
     }
 
+    fun reemplazarTodos(materiales: List<Material>) {
+        val db = dbHelper.writableDatabase
+        db.beginTransaction()
+        try {
+            db.delete(SerfagabContrato.TABLA_MATERIAL, null, null)
+            materiales.forEach { agregar(it) }
+            db.setTransactionSuccessful()
+        } finally {
+            db.endTransaction()
+        }
+    }
+
 }
