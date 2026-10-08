@@ -68,14 +68,29 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewProveedores"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingHorizontal="@dimen/padding_fragment_inicio"
-        android:paddingBottom="@dimen/padding_fragment_inicio"
-        tools:listitem="@layout/item_proveedor" />
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewProveedores"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/padding_fragment_inicio"
+            android:paddingBottom="@dimen/padding_fragment_inicio"
+            tools:listitem="@layout/item_proveedor" />
+
+        <TextView
+            android:id="@+id/tvVacio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/sin_proveedores"
+            android:textColor="@color/negro_navbar"
+            android:visibility="gone" />
+
+    </FrameLayout>
 
 </LinearLayout>

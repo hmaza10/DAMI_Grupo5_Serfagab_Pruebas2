@@ -87,15 +87,30 @@
 
         </HorizontalScrollView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewMateriales"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:paddingHorizontal="@dimen/padding_fragment_inicio"
-            android:paddingBottom="70dp"
-            tools:listitem = "@layout/item_material"/>
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMateriales"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingHorizontal="@dimen/padding_fragment_inicio"
+                android:paddingBottom="70dp"
+                tools:listitem = "@layout/item_material"/>
+
+            <TextView
+                android:id="@+id/tvVacio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/sin_materiales"
+                android:textColor="@color/negro_navbar"
+                android:visibility="gone" />
+
+        </FrameLayout>
 
     </LinearLayout>
 

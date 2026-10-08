@@ -51,10 +51,11 @@
     <string name="label_nombre">Nombre</string>
     <string name="label_descripcion">Descripcion</string>
     <string name="resultado_detalle_predeterminado">Predeterminado</string>
+    <string name="sin_materiales">No hay materiales registrados</string>
 
     <!-- ITEM:MATERIAL-->
     <string name="numero_id">Material #0</string>
-    <string name="producto_predeterminado">Prederterminado</string>
+    <string name="producto_predeterminado">Predeterminado</string>
     <string name="producto_estado_predeterminado">Estado</string>
     <string name="label_unidad">Unidad</string>
     <string name="label_stock">Stock</string>
@@ -72,6 +73,7 @@
     <string name="label_ruc">RUC</string>
     <string name="label_celular">Celular</string>
     <string name="label_email">Correo</string>
+    <string name="sin_proveedores">No hay proveedores registrados</string>
 
     <!--ITEM:PROVEEDOR-->
     <string name="numero_id_proveedor">Proveedor #0</string>
@@ -81,5 +83,16 @@
     <string name="email_predeterminado">Prederterminado</string>
     <string name="estado_predeterminado_proveedor">Estado</string>
     <string name="descripcion_proveedor_predeterminado">Predeterminado</string>
+
+    <!--TIPOMATERIALFRAGMENT-->
+    <string name="titulo_tipo_material">TIPOS DE MATERIAL</string>
+    <string name="buscador_hint_tipo_material">Buscar tipo de material</string>
+    <string name="sin_tipos_material">No hay tipos de material registrados</string>
+
+    <!--ITEM:TIPOMATERIAL-->
+    <string name="numero_id_tipomaterial">Tipo Material #0</string>
+    <string name="tipomaterial_predeterminado">Predeterminado</string>
+    <string name="descripcion_tipomaterial_predeterminado">Predeterminado</string>
+    <string name="estado_predeterminado_tipomaterial">Estado</string>
 
 </resources>
