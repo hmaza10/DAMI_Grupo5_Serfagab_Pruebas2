@@ -1,20 +1,88 @@
 package com.cibertec.serfagab
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import com.cibertec.serfagab.databinding.ActivityMainBinding
+import com.cibertec.serfagab.ui.InicioFragment
+import com.cibertec.serfagab.ui.materiales.MaterialesFragment
+import com.cibertec.serfagab.ui.proveedores.ProveedoresFragment
+import com.cibertec.serfagab.ui.tiposmateriales.TipoMaterialFragment
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        mostrarBienvenida()
+        configurarMenu()
+
+        if (savedInstanceState == null) {
+            mostrarFragmento(InicioFragment())
         }
     }
+
+    private fun mostrarBienvenida() {
+        val nombres = intent.getStringExtra(EXTRA_NOMBRES)
+            ?:getString(R.string.valor_no_disponible)
+        val apellidos = intent.getStringExtra(EXTRA_APELLIDOS)
+            ?:getString(R.string.valor_no_disponible)
+
+        if (nombres.isNotBlank()) {
+            binding.textViewUsuario.text =
+                getString(R.string.bienvenida_formato, nombres, apellidos)
+        }
+    }
+
+    private fun configurarMenu() {
+        binding.btnMenu.setOnClickListener {
+            val visible = binding.sidebarContainer.visibility == View.VISIBLE
+            binding.sidebarContainer.visibility = if(visible) View.GONE else View.VISIBLE
+        }
+
+        binding.itemInicio.root.setOnClickListener {
+            mostrarFragmento(InicioFragment())
+        }
+        binding.itemMateriales.root.setOnClickListener {
+            mostrarFragmento(MaterialesFragment())
+        }
+        binding.itemTipoMaterial.root.setOnClickListener {
+            mostrarFragmento(TipoMaterialFragment())
+        }
+        binding.itemProveedores.root.setOnClickListener {
+            mostrarFragmento(ProveedoresFragment())
+        }
+        binding.itemOrdenCompra.root.setOnClickListener {
+            Toast.makeText(this, R.string.modulo_no_disponible, Toast.LENGTH_SHORT).show()
+        }
+
+        binding.itemCerrarSesion.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun mostrarFragmento(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.ContenedorFragmento, fragment)
+            .commit()
+    }
+
+
+    companion object {
+        const val EXTRA_ID_USUARIO = "extra_id_usuario"
+        const val EXTRA_ID_TIPO = "extra_id_tipo"
+        const val EXTRA_NOMBRES = "extra_nombres"
+        const val EXTRA_APELLIDOS = "extra_apellidos"
+    }
+
 }

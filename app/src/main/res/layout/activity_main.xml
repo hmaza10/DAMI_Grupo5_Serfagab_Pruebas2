@@ -75,11 +75,11 @@
 
             </LinearLayout>
 
-            <include layout="@layout/item_sidebar_inicio"/>
-            <include layout="@layout/item_sidebar_materiales"/>
-            <include layout="@layout/item_sidebar_tipomaterial"/>
-            <include layout="@layout/item_sidebar_proveedores"/>
-            <include layout="@layout/item_sidebar_ordencompra"/>
+            <include android:id="@+id/itemInicio" layout="@layout/item_sidebar_inicio"/>
+            <include android:id="@+id/itemMateriales" layout="@layout/item_sidebar_materiales"/>
+            <include android:id="@+id/itemTipoMaterial" layout="@layout/item_sidebar_tipomaterial"/>
+            <include android:id="@+id/itemProveedores" layout="@layout/item_sidebar_proveedores"/>
+            <include android:id="@+id/itemOrdenCompra" layout="@layout/item_sidebar_ordencompra"/>
 
             <View
                 android:layout_width="match_parent"
@@ -117,7 +117,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/fragmentContainer"
+            android:id="@+id/ContenedorFragmento"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />

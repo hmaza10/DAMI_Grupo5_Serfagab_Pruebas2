@@ -8,5 +8,5 @@ data class Usuario(
     val email: String,
     val login: String,
     val clave: String,
-    val activo: Boolean
+    val activo: Boolean = true
 )

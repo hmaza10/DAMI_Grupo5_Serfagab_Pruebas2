@@ -70,7 +70,7 @@
                     android:drawablePadding="8dp"
                     android:padding="12dp"
                     android:autofillHints="personName"
-                    android:inputType="textCapWords"/>
+                    android:inputType="textNoSuggestions"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
