@@ -92,9 +92,16 @@
 
     <!--ITEM:TIPOMATERIAL-->
     <string name="numero_id_tipomaterial">Tipo Material #0</string>
+    <string name="codigo_formato_tipomaterial">Tipo Material #%1$d</string>
     <string name="tipomaterial_predeterminado">Predeterminado</string>
     <string name="descripcion_tipomaterial_predeterminado">Predeterminado</string>
     <string name="estado_predeterminado_tipomaterial">Estado</string>
+    <string name="estado_activo">Activo</string>
+    <string name="estado_inactivo">Inactivo</string>
+    <string name="sin_descripcion">Sin descripción</string>
+    <string name="filtro_todos">Todos</string>
+    <string name="filtro_activos">Activos</string>
+    <string name="filtro_inactivos">Inactivos</string>
 
     <!--LOGINACTIVITY-->
     <string name="error_usuario_vacio">Ingresa tu usuario</string>

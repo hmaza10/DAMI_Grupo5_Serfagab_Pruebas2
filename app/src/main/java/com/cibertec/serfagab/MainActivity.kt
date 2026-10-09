@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun configurarMenu() {
         binding.btnMenu.setOnClickListener {
-            val visible = binding.sidebarContainer.visibility == View.VISIBLE
-            binding.sidebarContainer.visibility = if(visible) View.GONE else View.VISIBLE
+            val visible = binding.sidebarContenedor.visibility == View.VISIBLE
+            binding.sidebarContenedor.visibility = if(visible) View.GONE else View.VISIBLE
         }
 
         binding.itemInicio.root.setOnClickListener {

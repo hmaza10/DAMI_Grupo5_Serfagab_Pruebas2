@@ -44,8 +44,8 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/sidebarContainer"
-            android:layout_width="90dp"
+            android:id="@+id/sidebarContenedor"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/negro_navbar">
