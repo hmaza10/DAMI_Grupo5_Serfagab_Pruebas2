@@ -2,7 +2,9 @@ package com.cibertec.serfagab.data
 
 import android.content.Context
 import android.database.DatabaseUtils
+import com.cibertec.serfagab.data.store.ProveedorStore
 import com.cibertec.serfagab.data.store.TipoMaterialStore
+import com.cibertec.serfagab.model.Proveedor
 import com.cibertec.serfagab.model.TipoMaterial
 
 object DatosPrueba {
@@ -10,6 +12,7 @@ object DatosPrueba {
     fun cargarSiVacio(context: Context) {
         cargarUsuario(context)
         cargarTiposMaterial(context)
+        cargarProveedores(context)
     }
 
     private fun cargarUsuario(context: Context) {
@@ -49,6 +52,18 @@ object DatosPrueba {
         store.insertar(TipoMaterial(nombre = "Cable electrico", descripcion = "Conductores para tableros e instalaciones", activo = true))
         store.insertar(TipoMaterial(nombre = "Herramienta manual", descripcion = "Herramientas de taller y montaje", activo = false))
 
+    }
+
+    private fun cargarProveedores(context: Context) {
+        val store = ProveedorStore(context)
+        if (store.obtenerTodos().isNotEmpty()) return
+
+        store.insertar(Proveedor(razonSocial = "Comercializadora Andina EIRL", ruc = "20605478931",
+            celular = "987456321", email = "ventas@andina.com.pe", descripcion = "Varillas y perfiles", activo = true))
+        store.insertar(Proveedor(razonSocial = "Distribuidora Industrial Peru E.I.R.L.", ruc = "20587412366",
+            celular = "956741258", email = "contacto@dipindustrial.pe", descripcion = "Venta de equipos electronicos", activo = true))
+        store.insertar(Proveedor(razonSocial = "Metalurgica Lima Sur SAC", ruc = "20451238761",
+            celular = "987123456", email = "ventas@metalurgicalimasur.pe", descripcion = "Estructuras metalicas y planchas", activo = false))
     }
 
 }

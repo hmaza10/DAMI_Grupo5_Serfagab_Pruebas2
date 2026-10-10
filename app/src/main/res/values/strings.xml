@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Serfagab_Pruebas2</string>
     <string name="valor_no_disponible">Pendiente</string>
+    <string name="dialogo_boton_aceptar">Aceptar</string>
     <!--STRINGS DE LOGIN-->
     <string name="name_empresa">SERFAGAB</string>
     <string name="descripcion_empresa">Gestion de Compras</string>
@@ -78,6 +79,7 @@
 
     <!--ITEM:PROVEEDOR-->
     <string name="numero_id_proveedor">Proveedor #0</string>
+    <string name="codigo_formato_proveedor">Proveedor #%1$d</string>
     <string name="razon_predeterminado">Predeterminado</string>
     <string name="ruc_predeterminado">-----------</string>
     <string name="celular_predeterminado">---------</string>

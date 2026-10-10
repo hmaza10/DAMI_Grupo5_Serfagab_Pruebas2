@@ -2,7 +2,7 @@ package com.cibertec.serfagab.model
 
 data class Usuario(
     val idUsuario: Int = 0,
-    val idTipo: Int,
+    val tipo: Tipo,
     val nombres: String,
     val apellidos: String,
     val email: String,

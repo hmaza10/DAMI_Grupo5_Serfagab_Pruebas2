@@ -2,7 +2,7 @@ package com.cibertec.serfagab.model
 
 data class Material(
     val idMaterial: Int = 0,
-    val idTipoMaterial: Int,
+    val tipoMaterial: TipoMaterial,
     val nombre: String,
     val unidadMedida: String,
     val stockActual: Double,

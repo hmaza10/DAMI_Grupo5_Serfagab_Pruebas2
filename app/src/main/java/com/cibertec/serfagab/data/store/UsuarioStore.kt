@@ -4,11 +4,13 @@ import android.content.Context
 import com.cibertec.serfagab.data.SerfagabContrato
 import com.cibertec.serfagab.data.SerfagabDbHelper
 import com.cibertec.serfagab.model.Usuario
+import com.cibertec.serfagab.model.Tipo
 import kotlin.math.log
 
 class UsuarioStore(context: Context) {
 
     private val dbHelper = SerfagabDbHelper(context.applicationContext)
+    private val tipoStore = TipoStore(context.applicationContext)
 
     fun validarLogin(login: String, clave: String): Usuario? {
         val columnas = arrayOf(
@@ -36,7 +38,7 @@ class UsuarioStore(context: Context) {
             if (cursor.moveToFirst()) {
                 return Usuario(
                     idUsuario = cursor.getInt(cursor.getColumnIndexOrThrow(SerfagabContrato.COLUMNA_USUARIO_ID)),
-                    idTipo = cursor.getInt(cursor.getColumnIndexOrThrow(SerfagabContrato.COLUMNA_USUARIO_ID_TIPO)),
+                    tipo = buscarTipo(cursor.getInt(cursor.getColumnIndexOrThrow(SerfagabContrato.COLUMNA_USUARIO_ID_TIPO))),
                     nombres = cursor.getString(cursor.getColumnIndexOrThrow(SerfagabContrato.COLUMNA_USUARIO_NOMBRES)),
                     apellidos = cursor.getString(cursor.getColumnIndexOrThrow(SerfagabContrato.COLUMNA_USUARIO_APELLIDOS)),
                     email = cursor.getString(cursor.getColumnIndexOrThrow(SerfagabContrato.COLUMNA_USUARIO_EMAIL)),
@@ -47,5 +49,10 @@ class UsuarioStore(context: Context) {
             }
         }
         return null
+    }
+
+    private fun buscarTipo(idTipo: Int): Tipo {
+        return tipoStore.obtenerTodos().firstOrNull { it.idTipo == idTipo }
+            ?: Tipo(idTipo = idTipo, descripcion = "")
     }
 }

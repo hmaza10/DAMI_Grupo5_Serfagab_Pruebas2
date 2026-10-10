@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     val intent = Intent(this, MainActivity::class.java).apply {
                         putExtra(MainActivity.EXTRA_ID_USUARIO, usuario.idUsuario)
-                        putExtra(MainActivity.EXTRA_ID_TIPO, usuario.idTipo)
+                        putExtra(MainActivity.EXTRA_ID_TIPO, usuario.tipo.idTipo)
                         putExtra(MainActivity.EXTRA_NOMBRES, usuario.nombres)
                         putExtra(MainActivity.EXTRA_APELLIDOS, usuario.apellidos)
                     }

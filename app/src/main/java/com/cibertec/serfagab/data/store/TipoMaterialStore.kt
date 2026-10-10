@@ -7,7 +7,6 @@ import com.cibertec.serfagab.data.SerfagabDbHelper
 import com.cibertec.serfagab.model.TipoMaterial
 
 class TipoMaterialStore(context: Context) {
-
     private val dbHelper = SerfagabDbHelper(context.applicationContext)
 
     fun obtenerTodos(): List<TipoMaterial> {

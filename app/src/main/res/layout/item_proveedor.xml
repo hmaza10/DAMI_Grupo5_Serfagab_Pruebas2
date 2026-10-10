@@ -18,7 +18,7 @@
         tools:text="@string/numero_id_proveedor" />
 
     <TextView
-        android:id="@+id/textViewNombre"
+        android:id="@+id/textViewRazonSocial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_description_inicio"

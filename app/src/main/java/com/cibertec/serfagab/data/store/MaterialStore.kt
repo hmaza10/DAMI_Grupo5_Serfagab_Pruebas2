@@ -5,15 +5,17 @@ import android.content.Context
 import com.cibertec.serfagab.data.SerfagabContrato
 import com.cibertec.serfagab.data.SerfagabDbHelper
 import com.cibertec.serfagab.model.Material
+import com.cibertec.serfagab.model.TipoMaterial
 
 class MaterialStore(context: Context) {
 
     private val dbHelper = SerfagabDbHelper(context.applicationContext)
+    private val tipoMaterialStore = TipoMaterialStore(context.applicationContext)
 
     fun agregar(material: Material): Long {
         val valores = ContentValues().apply {
             if (material.idMaterial != 0) put(SerfagabContrato.COLUMNA_MATERIAL_ID, material.idMaterial)
-            put(SerfagabContrato.COLUMNA_MATERIAL_ID_TIPO, material.idTipoMaterial)
+            put(SerfagabContrato.COLUMNA_MATERIAL_ID_TIPO, material.tipoMaterial.idTipoMaterial)
             put(SerfagabContrato.COLUMNA_MATERIAL_NOMBRE, material.nombre)
             put(SerfagabContrato.COLUMNA_MATERIAL_UNIDAD, material.unidadMedida)
             put(SerfagabContrato.COLUMNA_MATERIAL_STOCK, material.stockActual)
@@ -31,6 +33,7 @@ class MaterialStore(context: Context) {
     }
 
     fun obtenerTodos(): List<Material> {
+        val tiposPorId = tipoMaterialStore.obtenerTodos().associateBy { it.idTipoMaterial }
         val materiales = mutableListOf<Material>()
         val columnas = arrayOf(
             SerfagabContrato.COLUMNA_MATERIAL_ID,
@@ -64,17 +67,21 @@ class MaterialStore(context: Context) {
             val indiceActivo = cursor.getColumnIndexOrThrow(SerfagabContrato.COLUMNA_MATERIAL_ACTIVO)
 
             while (cursor.moveToNext()) {
+                val idTipo = cursor.getInt(indiceIdTipo)
+                val tipoMaterial = tiposPorId[idTipo]
+                    ?: TipoMaterial(idTipoMaterial = idTipo, nombre = "", descripcion = null, activo = true)
+
                 materiales.add(
                     Material(
                         idMaterial = cursor.getInt(indiceId),
-                        idTipoMaterial = cursor.getInt(indiceIdTipo),
+                        tipoMaterial = tipoMaterial,
                         nombre = cursor.getString(indiceNombre),
                         unidadMedida = cursor.getString(indiceUnidad)?: "",
                         stockActual = cursor.getDouble(indiceStock),
                         precioReferencial = cursor.getDouble(indicePrecio),
                         descripcion = cursor.getString(indiceDescripcion) ?: "",
-                        version = cursor.getInt(indiceVersion),
-                        activo = cursor.getInt(indiceActivo) == 1
+                        activo = cursor.getInt(indiceActivo) == 1,
+                        version = cursor.getInt(indiceVersion)
                     )
                 )
             }
@@ -84,7 +91,7 @@ class MaterialStore(context: Context) {
 
     fun actualizar(material: Material): Int {
         val valores = ContentValues().apply {
-            put(SerfagabContrato.COLUMNA_MATERIAL_ID_TIPO, material.idTipoMaterial)
+            put(SerfagabContrato.COLUMNA_MATERIAL_ID_TIPO, material.tipoMaterial.idTipoMaterial)
             put(SerfagabContrato.COLUMNA_MATERIAL_NOMBRE, material.nombre)
             put(SerfagabContrato.COLUMNA_MATERIAL_UNIDAD, material.unidadMedida)
             put(SerfagabContrato.COLUMNA_MATERIAL_STOCK, material.stockActual)
