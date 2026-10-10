@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Serfagab_Pruebas2</string>
+    <string name="app_name">Serfagab</string>
     <string name="valor_no_disponible">Pendiente</string>
     <string name="dialogo_boton_aceptar">Aceptar</string>
     <!--STRINGS DE LOGIN-->
