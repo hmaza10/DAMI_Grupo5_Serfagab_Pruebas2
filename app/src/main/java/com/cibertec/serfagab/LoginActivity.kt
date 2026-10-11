@@ -6,22 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cibertec.serfagab.databinding.ActivityLoginBinding
 import android.content.Intent
 import android.widget.Toast
-import com.cibertec.serfagab.data.DatosPrueba
-import com.cibertec.serfagab.data.store.UsuarioStore
+import com.cibertec.serfagab.remote.ApiClient
+import com.cibertec.serfagab.sync.Sincronizador
+import com.cibertec.serfagab.util.SessionStore
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var usuarioStore: UsuarioStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        DatosPrueba.cargarSiVacio(this)
-        usuarioStore = UsuarioStore(this)
 
         binding.buttonIngresar.setOnClickListener {
             inciarSesion()
@@ -49,13 +46,21 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
+        binding.buttonIngresar.isEnabled = false
+
         Thread {
-            val usuario = usuarioStore.validarLogin(login, clave)
+            val respuesta = ApiClient.login(login, clave)
+            val usuario = respuesta.datos
+
+            if (respuesta.exito && usuario != null) {
+                SessionStore.guardarSesion(applicationContext, usuario, login, clave)
+                Sincronizador.sincronizarCatalogos(applicationContext)
+            }
 
             runOnUiThread {
                 binding.buttonIngresar.isEnabled = true
 
-                if (usuario == null) {
+                if (!respuesta.exito || usuario == null) {
                     Toast.makeText(this, R.string.error_credenciales, Toast.LENGTH_SHORT).show()
                 } else {
                     val intent = Intent(this, MainActivity::class.java).apply {

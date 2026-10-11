@@ -7,6 +7,6 @@ data class Usuario(
     val apellidos: String,
     val email: String,
     val login: String,
-    val clave: String,
+    val clave: String? = null,
     val activo: Boolean = true
 )

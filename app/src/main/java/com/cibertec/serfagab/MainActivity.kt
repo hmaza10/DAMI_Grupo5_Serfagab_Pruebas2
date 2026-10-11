@@ -12,6 +12,7 @@ import com.cibertec.serfagab.ui.InicioFragment
 import com.cibertec.serfagab.ui.materiales.MaterialesFragment
 import com.cibertec.serfagab.ui.proveedores.ProveedoresFragment
 import com.cibertec.serfagab.ui.tiposmateriales.TipoMaterialFragment
+import com.cibertec.serfagab.util.SessionStore
 
 class MainActivity : AppCompatActivity() {
 
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.itemCerrarSesion.setOnClickListener {
+            SessionStore.cerrar(this)
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
