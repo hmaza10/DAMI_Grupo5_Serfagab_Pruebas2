@@ -7,7 +7,8 @@ import com.cibertec.serfagab.databinding.ActivityLoginBinding
 import android.content.Intent
 import android.widget.Toast
 import com.cibertec.serfagab.remote.ApiClient
-import com.cibertec.serfagab.sync.Sincronizador
+import com.cibertec.serfagab.sync.SincronizaScheduler
+import com.cibertec.serfagab.sync.SyncManager
 import com.cibertec.serfagab.util.SessionStore
 
 class LoginActivity : AppCompatActivity() {
@@ -54,14 +55,17 @@ class LoginActivity : AppCompatActivity() {
 
             if (respuesta.exito && usuario != null) {
                 SessionStore.guardarSesion(applicationContext, usuario, login, clave)
-                Sincronizador.sincronizarCatalogos(applicationContext)
+                val sincronizado = SyncManager.sincronizarCatalogos(applicationContext)
+                if (!sincronizado) {
+                    SincronizaScheduler.programar(applicationContext)
+                }
             }
 
             runOnUiThread {
                 binding.buttonIngresar.isEnabled = true
 
                 if (!respuesta.exito || usuario == null) {
-                    Toast.makeText(this, R.string.error_credenciales, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, respuesta.mensaje, Toast.LENGTH_SHORT).show()
                 } else {
                     val intent = Intent(this, MainActivity::class.java).apply {
                         putExtra(MainActivity.EXTRA_ID_USUARIO, usuario.idUsuario)

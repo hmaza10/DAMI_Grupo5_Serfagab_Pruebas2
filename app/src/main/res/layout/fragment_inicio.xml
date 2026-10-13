@@ -381,6 +381,26 @@
 
         </LinearLayout>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSincronizar"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_dimen"
+            android:layout_marginTop="6dp"
+            android:text="@string/sincronizar_ahora"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textViewEstadoSincronizacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_description_inicio"
+            android:layout_marginBottom="@dimen/padding_fragment_inicio"
+            android:text="@string/sincronizacion_sin_ejecutar"
+            android:textColor="@color/negro_navbar"
+            android:textSize="@dimen/size_navbar_text" />
+
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

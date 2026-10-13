@@ -6,7 +6,7 @@ import com.cibertec.serfagab.data.store.ProveedorStore
 import com.cibertec.serfagab.data.store.TipoMaterialStore
 import com.cibertec.serfagab.remote.ApiClient
 
-object Sincronizador {
+object SyncManager {
 
     fun sincronizarCatalogos(context: Context): Boolean {
         val tipos = ApiClient.listarTiposMaterial()
@@ -18,5 +18,11 @@ object Sincronizador {
         materiales.datos?.let { MaterialStore(context).reemplazarTodos(it) }
 
         return tipos.exito && proveedores.exito && materiales.exito
+    }
+
+    fun sincronizarMateriales(context: Context): Boolean {
+        val materiales = ApiClient.listarMateriales()
+        materiales.datos?.let { MaterialStore(context).reemplazarTodos(it) }
+        return materiales.exito
     }
 }

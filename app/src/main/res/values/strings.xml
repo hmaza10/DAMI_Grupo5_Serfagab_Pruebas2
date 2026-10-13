@@ -114,4 +114,11 @@
     <string name="bienvenida_formato">Bienvenido, %1$s %2$s</string>
     <string name="modulo_no_disponible">Módulo no disponible</string>
 
+    <!--SINCRONIZACION-->
+    <string name="sincronizar_ahora">Sincronizar ahora</string>
+    <string name="sincronizacion_sin_ejecutar">Aún no se ha sincronizado</string>
+    <string name="sincronizacion_programada">Sincronización programada...</string>
+    <string name="sincronizacion_no_programada">No se pudo programar la sincronización</string>
+    <string name="sincronizacion_ultima_formato">Última sincronización: %1$s</string>
+
 </resources>
