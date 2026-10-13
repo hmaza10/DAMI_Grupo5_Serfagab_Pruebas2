@@ -50,33 +50,44 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonIngresar.isEnabled = false
 
         Thread {
-            val respuesta = ApiClient.login(login, clave)
-            val usuario = respuesta.datos
+          try {
+              val respuesta = ApiClient.login(login, clave)
+              val usuario = respuesta.datos
 
-            if (respuesta.exito && usuario != null) {
-                SessionStore.guardarSesion(applicationContext, usuario, login, clave)
-                val sincronizado = SyncManager.sincronizarCatalogos(applicationContext)
-                if (!sincronizado) {
-                    SincronizaScheduler.programar(applicationContext)
-                }
-            }
+              if (respuesta.exito && usuario != null) {
+                  SessionStore.guardarSesion(applicationContext, usuario, login, clave)
+                  try {
+                      val sincronizado = SyncManager.sincronizarCatalogos(applicationContext)
+                      if (!sincronizado) {
+                          SincronizaScheduler.programar(applicationContext)
+                      }
+                  } catch (e: Exception) {
+                      android.util.Log.e("Login", "Error al sincronizar", e)
+                  }
+              }
+              runOnUiThread {
+                  binding.buttonIngresar.isEnabled = true
 
-            runOnUiThread {
-                binding.buttonIngresar.isEnabled = true
-
-                if (!respuesta.exito || usuario == null) {
-                    Toast.makeText(this, respuesta.mensaje, Toast.LENGTH_SHORT).show()
-                } else {
-                    val intent = Intent(this, MainActivity::class.java).apply {
-                        putExtra(MainActivity.EXTRA_ID_USUARIO, usuario.idUsuario)
-                        putExtra(MainActivity.EXTRA_ID_TIPO, usuario.tipo.idTipo)
-                        putExtra(MainActivity.EXTRA_NOMBRES, usuario.nombres)
-                        putExtra(MainActivity.EXTRA_APELLIDOS, usuario.apellidos)
-                    }
-                    startActivity(intent)
-                    finish()
-                }
-            }
+                  if (!respuesta.exito || usuario == null) {
+                      Toast.makeText(this, respuesta.mensaje, Toast.LENGTH_SHORT).show()
+                  } else {
+                      val intent = Intent(this, MainActivity::class.java).apply {
+                          putExtra(MainActivity.EXTRA_ID_USUARIO, usuario.idUsuario)
+                          putExtra(MainActivity.EXTRA_ID_TIPO, usuario.tipo.idTipo)
+                          putExtra(MainActivity.EXTRA_NOMBRES, usuario.nombres)
+                          putExtra(MainActivity.EXTRA_APELLIDOS, usuario.apellidos)
+                      }
+                      startActivity(intent)
+                      finish()
+                  }
+              }
+          } catch (e: Exception) {
+              android.util.Log.e("Login", "Error en login", e)
+              runOnUiThread {
+                  binding.buttonIngresar.isEnabled = true
+                  Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+              }
+          }
         }.start()
     }
 }
