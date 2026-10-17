@@ -23,4 +23,27 @@ class SerfagabDbHelper(context: Context) : SQLiteOpenHelper(
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
 
     }
+
+    override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+
+    }
+
+    override fun onOpen(db: SQLiteDatabase) {
+        super.onOpen(db)
+        if (db.isReadOnly) return
+        if (!existeColumna(db, SerfagabContrato.TABLA_MATERIAL, SerfagabContrato.COLUMNA_MATERIAL_PENDIENTE_SYNC)) {
+            db.execSQL("ALTER TABLE ${SerfagabContrato.TABLA_MATERIAL} " +  "ADD COLUMN ${SerfagabContrato.COLUMNA_MATERIAL_PENDIENTE_SYNC} INTEGER NOT NULL DEFAULT 0"
+            )
+        }
+    }
+
+    private fun existeColumna(db: SQLiteDatabase, tabla: String, columna: String): Boolean {
+        db.rawQuery("PRAGMA table_info($tabla)", null).use { cursor ->
+            val indice = cursor.getColumnIndexOrThrow("name")
+            while (cursor.moveToNext()) {
+                if (cursor.getString(indice) == columna) return true
+            }
+        }
+        return false
+    }
 }

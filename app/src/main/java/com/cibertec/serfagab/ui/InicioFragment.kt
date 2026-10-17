@@ -9,8 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.cibertec.serfagab.R
+import com.cibertec.serfagab.data.store.MaterialStore
+import com.cibertec.serfagab.data.store.OrdenStore
+import com.cibertec.serfagab.data.store.ProveedorStore
+import com.cibertec.serfagab.data.store.TipoMaterialStore
 import com.cibertec.serfagab.databinding.FragmentInicioBinding
 import com.cibertec.serfagab.sync.SincronizaScheduler
+import com.cibertec.serfagab.util.SessionStore
 import java.text.DateFormat
 import java.util.Date
 
@@ -30,12 +35,42 @@ class InicioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mostrarBienvenida()
+        cargarConteos()
 
         mostrarEstadoSincronizacion()
 
         binding.buttonSincronizar.setOnClickListener {
             programarSincronizacion()
         }
+    }
+
+    private fun mostrarBienvenida() {
+        val id = SessionStore.idUsuario(requireContext().applicationContext)
+        binding.textViewBienvidaInicio.text = getString(R.string.bienvenida_inicio_formato, id)
+    }
+
+    private fun cargarConteos() {
+        val contexto = requireContext().applicationContext
+        val idUsuario = SessionStore.idUsuario(contexto)
+
+        Thread {
+            val totalMateriales = MaterialStore(contexto).obtenerTodos().size
+            val totalProveedores = ProveedorStore(contexto).obtenerTodos().size
+            val totalTipos = TipoMaterialStore(contexto).obtenerTodos().size
+            val totalPendientes = OrdenStore(contexto).listarPendientes().size
+            // TODO E4: cuando Valerie agregue OrdenStore.listarDe(idUsuario), usarlo aquí
+            val totalOrdenes = 0
+
+            activity?.runOnUiThread {
+                val bindingActual = _binding ?: return@runOnUiThread
+                bindingActual.textViewCountMateriales.text = totalMateriales.toString()
+                bindingActual.textViewCountProveedores.text = totalProveedores.toString()
+                bindingActual.textViewCountTipoMaterial.text = totalTipos.toString()
+                bindingActual.textViewCountPendientes.text = totalPendientes.toString()
+                bindingActual.textViewCountOrdenes.text = totalOrdenes.toString()
+            }
+        }.start()
     }
 
     private fun programarSincronizacion() {

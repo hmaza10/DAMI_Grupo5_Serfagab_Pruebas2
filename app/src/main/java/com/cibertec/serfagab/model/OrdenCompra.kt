@@ -8,5 +8,6 @@ data class OrdenCompra(
     val observaciones: String?,
     val fecha: String,
     val total: Double,
-    val estado: String
+    val estado: String,
+    val detalles: List<DetalleOrdenCompra>
 )

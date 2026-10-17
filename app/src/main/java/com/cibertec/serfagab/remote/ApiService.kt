@@ -14,6 +14,7 @@ import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -37,6 +38,10 @@ interface ApiService {
 
     @PATCH("api/materiales/{id}/activar")
     fun activarMaterial(@Path("id") id: Int): Call<Material>
+
+    @GET("api/materiales/paginado")
+    fun listarMaterialesPaginado(@Query("page") page: Int,
+                                 @Query("size") size: Int): Call<PaginaMateriales>
 
     @GET("api/proveedores")
     fun listarProveedores(): Call<List<Proveedor>>

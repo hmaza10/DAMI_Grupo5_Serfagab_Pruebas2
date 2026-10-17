@@ -5,15 +5,13 @@
 -->
 <data-extraction-rules>
     <cloud-backup>
-        <!-- TODO: Use <include> and <exclude> to control what is backed up.
-        <include .../>
-        <exclude .../>
-        -->
+        <exclude domain="database" path="serfagab.db" />
+        <exclude domain="sharedpref" path="serfagab_sesion.xml" />
+        <exclude domain="sharedpref" path="estado_sincronizacion.xml" />
     </cloud-backup>
-    <!--
     <device-transfer>
-        <include .../>
-        <exclude .../>
+        <exclude domain="database" path="serfagab.db" />
+        <exclude domain="sharedpref" path="serfagab_sesion.xml" />
+        <exclude domain="sharedpref" path="estado_sincronizacion.xml" />
     </device-transfer>
-    -->
 </data-extraction-rules>

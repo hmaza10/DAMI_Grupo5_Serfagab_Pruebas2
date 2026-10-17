@@ -40,6 +40,8 @@
     <string name="acceso_rapido_ordenes_description">Registrar una compra</string>
     <string name="acceso_rapido_material">Nuevo Material</string>
     <string name="acceso_rapido_material_description">Registrar un material</string>
+    <string name="bienvenida_inicio_formato">Bienvenido, usuario %d</string>
+
 
     <!--MATERIALFRAGMENT-->
     <string name="titulo_materiales">MATERIALES</string>
